@@ -1,0 +1,16 @@
+:root {
+	--core-hl:         #E95420;
+	--core-bg:         #FFFFFF;
+	--core-fg:         #000000;
+
+	--sup-light:       #77216F;
+	--sup-mid:         #5E2750;
+	--sup-dark:        #2C001E;
+
+	--nuteral-warm:    #AEA79F;
+	--neteral-cool:    #333333;
+	--neteral-text:    #111111;
+
+	--canonical-core:  #772953;
+	--canonical-white: #FFFFFF;
+}

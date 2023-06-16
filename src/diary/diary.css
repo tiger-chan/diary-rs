@@ -1,0 +1,39 @@
+.entry-list {
+	color: var(--cononical-white);
+	margin: 20px auto;
+	max-width: 720px;
+	list-style-type: none;
+	padding: 0;
+}
+
+.entry-list-item {
+	border: 1px solid var(--nuteral-warm);
+	background-color: var(--nuteral-cool);
+	border-radius: 5px;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.entry-title {
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.entry-date {
+	margin-bottom: 10px;
+}
+
+.view-entry-button {
+	display: inline-block;
+	padding: 5px 10px;
+	background-color: #4CAF50;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 5px;
+	transition: background-color 0.3s;
+}
+
+.view-entry-button:hover {
+	background-color: #45A049;
+}
