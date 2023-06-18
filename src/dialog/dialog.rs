@@ -1,5 +1,5 @@
 use wasm_bindgen::{__rt::IntoJsResult, prelude::*};
-use web_sys::{console, window, HtmlDialogElement};
+use web_sys::{window, HtmlDialogElement};
 use yew::prelude::*;
 
 const STYLES: &str = include_str!("dialog.css");
@@ -31,7 +31,7 @@ pub fn Dialog(props: &Props) -> Html {
 
     html![<div class="add-dialog">
 		<style>{STYLES}</style>
-		<dialog class="add-dialog-dialog" id={props.id.clone()}>
+		<dialog class={classes!("add-dialog-window")} id={props.id.clone()}>
 			<form>
 				<label for="entry-title">{"Title"}</label>
 				<input type="text" id="entry-title" name="entry-title" required=true />

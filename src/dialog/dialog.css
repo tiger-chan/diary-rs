@@ -1,4 +1,4 @@
-.add-dialog > .add-dialog-dialog {
+.add-dialog > .add-dialog-window {
 	max-width: 500px;
 	margin: 20px auto;
 	padding: 20px;
@@ -7,19 +7,19 @@
 	background-color: #f9f9f9;
 }
 
-.add-dialog > label {
+.add-dialog-window label {
 	display: block;
 	margin-bottom: 5px;
 }
 
-.add-dialog > input[type="text"],
-.add-dialog > textarea {
+.add-dialog-window input[type="text"],
+.add-dialog-window textarea {
 	width: 100%;
 	padding: 5px;
 	margin-bottom: 10px;
 }
 
-.add-dialog > button {
+.add-dialog-window button {
 	padding: 5px 10px;
 	background-color: #4CAF50;
 	color: #fff;
@@ -29,6 +29,6 @@
 	transition: background-color 0.3f;
 }
 
-.add-dialog > button:hover {
+.add-dialog-window button:hover {
 	background-color: #45A049;
 }

@@ -1,16 +1,248 @@
 :root {
-	--core-hl:         #E95420;
-	--core-bg:         #FFFFFF;
-	--core-fg:         #000000;
+	/* based largely on https://una.im/css-color-theming/ */
 
-	--sup-light:       #77216F;
-	--sup-mid:         #5E2750;
-	--sup-dark:        #2C001E;
+	/*  Base Values  */
+	--contrastThreshold: 60%;
+	
+	/*  Calculations Based on Lightness  */
+	--lightnessTransform:      10%;
+	--darknessTransform:       15%;
+}
 
-	--nuteral-warm:    #AEA79F;
-	--neteral-cool:    #333333;
-	--neteral-text:    #111111;
+/* Primary color configuration */
+:root {
+	--primary-color-h:   0;
+	--primary-color-s:  0%;
+	--primary-color-l: 97%;
 
-	--canonical-core:  #772953;
-	--canonical-white: #FFFFFF;
+	--primary-color-light-l:      calc(var(--primary-color-l)   + var(--lightnessTransform));
+	--primary-color-dark-l:       calc(var(--primary-color-l)   - var(--darknessTransform));
+	--color-primary:              hsl(var(--primary-color-h),   var(--primary-color-s),   var(--primary-color-l));
+	--color-primary-dark:         hsl(var(--primary-color-h),   var(--primary-color-s),   var(--primary-color-dark-l));
+	--color-primary-light:        hsl(var(--primary-color-h),   var(--primary-color-s),   var(--primary-color-light-l));
+
+	/*  Calculations Based on Hue  */
+	--color-primary-complement:   hsl(calc(var(--primary-color-h)   + 180), var(--primary-color-s),   var(--primary-color-l));
+	--color-primary-triad-1:      hsl(calc(var(--primary-color-h)   + 120), var(--primary-color-s),   var(--primary-color-l));
+	--color-primary-triad-2:      hsl(calc(var(--primary-color-h)   - 120), var(--primary-color-s),   var(--primary-color-l));
+
+	--primary-switch:             calc((var(--primary-color-l)       - var(--contrastThreshold)) * -100);
+	--primary-dark-switch:        calc((var(--primary-color-dark-l)  - var(--contrastThreshold)) * -100);
+	--primary-light-switch:       calc((var(--primary-color-light-l) - var(--contrastThreshold)) * -100);
+}
+
+/* Secondary color configuration */
+:root {
+	--secondary-color-h: 345;
+	--secondary-color-s:  3%;
+	--secondary-color-l: 24%;
+
+	--secondary-color-light-l:    calc(var(--secondary-color-l) + var(--lightnessTransform));
+	--secondary-color-dark-l:     calc(var(--secondary-color-l) - var(--darknessTransform));
+	--color-secondary:            hsl(var(--secondary-color-h), var(--secondary-color-s), var(--secondary-color-l));
+	--color-secondary-dark:       hsl(var(--secondary-color-h), var(--secondary-color-s), var(--secondary-color-dark-l));
+	--color-secondary-light:      hsl(var(--secondary-color-h), var(--secondary-color-s), var(--secondary-color-light-l));
+	
+	/*  Calculations Based on Hue  */
+	--color-secondary-complement: hsl(calc(var(--secondary-color-h) + 180), var(--secondary-color-s), var(--secondary-color-l));
+	--color-secondary-triad-1:    hsl(calc(var(--secondary-color-h) + 120), var(--secondary-color-s), var(--secondary-color-l));
+	--color-secondary-triad-2:    hsl(calc(var(--secondary-color-h) - 120), var(--secondary-color-s), var(--secondary-color-l));
+
+	--secondary-switch:           calc((var(--secondary-color-l)       - var(--contrastThreshold)) * -100);
+	--secondary-dark-switch:      calc((var(--secondary-color-dark-l)  - var(--contrastThreshold)) * -100);
+	--secondary-light-switch:     calc((var(--secondary-color-light-l) - var(--contrastThreshold)) * -100);
+}
+
+/* Accent color configuration */
+:root {
+	--accent-color-h: 305;
+	--accent-color-s: 31%;
+	--accent-color-l: 36%;
+
+	--accent-color-light-l:    calc(var(--accent-color-l) + var(--lightnessTransform));
+	--accent-color-dark-l:     calc(var(--accent-color-l) - var(--darknessTransform));
+	--color-accent:            hsl(var(--accent-color-h), var(--accent-color-s), var(--accent-color-l));
+	--color-accent-dark:       hsl(var(--accent-color-h), var(--accent-color-s), var(--accent-color-dark-l));
+	--color-accent-light:      hsl(var(--accent-color-h), var(--accent-color-s), var(--accent-color-light-l));
+	
+	/*  Calculations Based on Hue  */
+	--color-accent-complement: hsl(calc(var(--accent-color-h) + 180), var(--accent-color-s), var(--accent-color-l));
+	--color-accent-triad-1:    hsl(calc(var(--accent-color-h) + 120), var(--accent-color-s), var(--accent-color-l));
+	--color-accent-triad-2:    hsl(calc(var(--accent-color-h) - 120), var(--accent-color-s), var(--accent-color-l));
+
+	--accent-switch:           calc((var(--accent-color-l)       - var(--contrastThreshold)) * -100);
+	--accent-dark-switch:      calc((var(--accent-color-dark-l)  - var(--contrastThreshold)) * -100);
+	--accent-light-switch:     calc((var(--accent-color-light-l) - var(--contrastThreshold)) * -100);
+}
+
+/* Highlight color configuration */
+:root {
+	--highlight-color-h:  16;
+	--highlight-color-s: 82%;
+	--highlight-color-l: 52%;
+
+	--highlight-color-light-l:    calc(var(--highlight-color-l) + var(--lightnessTransform));
+	--highlight-color-dark-l:     calc(var(--highlight-color-l) - var(--darknessTransform));
+	--color-highlight:            hsl(var(--highlight-color-h), var(--highlight-color-s), var(--highlight-color-l));
+	--color-highlight-dark:       hsl(var(--highlight-color-h), var(--highlight-color-s), var(--highlight-color-dark-l));
+	--color-highlight-light:      hsl(var(--highlight-color-h), var(--highlight-color-s), var(--highlight-color-light-l));
+	
+	/*  Calculations Based on Hue  */
+	--color-highlight-complement: hsl(calc(var(--highlight-color-h) + 180), var(--highlight-color-s), var(--highlight-color-l));
+	--color-highlight-triad-1:    hsl(calc(var(--highlight-color-h) + 120), var(--highlight-color-s), var(--highlight-color-l));
+	--color-highlight-triad-2:    hsl(calc(var(--highlight-color-h) - 120), var(--highlight-color-s), var(--highlight-color-l));
+
+	--highlight-switch:           calc((var(--highlight-color-l)       - var(--contrastThreshold)) * -100);
+	--highlight-dark-switch:      calc((var(--highlight-color-dark-l)  - var(--contrastThreshold)) * -100);
+	--highlight-light-switch:     calc((var(--highlight-color-light-l) - var(--contrastThreshold)) * -100);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--darknessTransform:       12%;
+
+		--primary-color-h:   345;
+		--primary-color-s:    3%;
+		--primary-color-l:   24%;
+
+		--secondary-color-h:   0;
+		--secondary-color-s:  0%;
+		--secondary-color-l: 20%;
+
+		--accent-color-h:    305;
+		--accent-color-s:    31%;
+		--accent-color-l:    36%;
+
+		--highlight-color-h:  16;
+		--highlight-color-s: 82%;
+		--highlight-color-l: 52%;
+	}
+}
+
+/* Primary color classes */
+
+.primary {
+	background-color: var(--color-primary);
+	color: hsl(0, 0%, var(--primary-switch));
+}
+
+.primary-dark {
+	background-color: var(--color-primary-dark);
+	color: hsl(0, 0%, var(--primary-dark-switch));
+}
+
+.primary-light {
+	background-color: var(--color-primary-light);
+	color: hsl(0, 0%, var(--primary-light-switch));
+}
+
+.primary-complement {
+	background: var(--color-primary-complement);
+	color: hsl(0, 0%, var(--primary-switch));
+}
+
+.primary-triad-1 {
+	background: var(--color-primary-triad-1);
+	color: hsl(0, 0%, var(--primary-switch));
+}
+
+.primary-triad-2 {
+	background: var(--color-primary-triad-2);
+	color: hsl(0, 0%, var(--primary-switch));
+}
+
+/* Secondary color classes */
+
+.secondary {
+	background-color: var(--color-secondary);
+	color: hsl(0, 0%, var(--secondary-switch));
+}
+
+.secondary-dark {
+	background-color: var(--color-secondary-dark);
+	color: hsl(0, 0%, var(--secondary-dark-switch));
+}
+
+.secondary-light {
+	background-color: var(--color-secondary-light);
+	color: hsl(0, 0%, var(--secondary-light-switch));
+}
+
+.secondary-complement {
+	background: var(--color-secondary-complement);
+	color: hsl(0, 0%, var(--secondary-switch));
+}
+
+.secondary-triad-1 {
+	background: var(--color-secondary-triad-1);
+	color: hsl(0, 0%, var(--secondary-switch));
+}
+
+.secondary-triad-2 {
+	background: var(--color-secondary-triad-2);
+	color: hsl(0, 0%, var(--secondary-switch));
+}
+
+/* Accent color classes */
+
+.accent {
+	background-color: var(--color-accent);
+	color: hsl(0, 0%, var(--accent-switch));
+}
+
+.accent-dark {
+	background-color: var(--color-accent-dark);
+	color: hsl(0, 0%, var(--accent-dark-switch));
+}
+
+.accent-light {
+	background-color: var(--color-accent-light);
+	color: hsl(0, 0%, var(--accent-light-switch));
+}
+
+.accent-complement {
+	background: var(--color-accent-complement);
+	color: hsl(0, 0%, var(--accent-switch));
+}
+
+.accent-triad-1 {
+	background: var(--color-accent-triad-1);
+	color: hsl(0, 0%, var(--accent-switch));
+}
+
+.accent-triad-2 {
+	background: var(--color-accent-triad-2);
+	color: hsl(0, 0%, var(--accent-switch));
+}
+
+/* Highlight color classes */
+
+.highlight {
+	background-color: var(--color-highlight);
+	color: hsl(0, 0%, var(--highlight-switch));
+}
+
+.highlight-dark {
+	background-color: var(--color-highlight-dark);
+	color: hsl(0, 0%, var(--highlight-dark-switch));
+}
+
+.highlight-light {
+	background-color: var(--color-highlight-light);
+	color: hsl(0, 0%, var(--highlight-light-switch));
+}
+
+.highlight-complement {
+	background: var(--color-highlight-complement);
+	color: hsl(0, 0%, var(--highlight-switch));
+}
+
+.highlight-triad-1 {
+	background: var(--color-highlight-triad-1);
+	color: hsl(0, 0%, var(--highlight-switch));
+}
+
+.highlight-triad-2 {
+	background: var(--color-highlight-triad-2);
+	color: hsl(0, 0%, var(--highlight-switch));
 }

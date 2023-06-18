@@ -21,14 +21,14 @@ pub enum Route {
 
 #[function_component]
 fn App() -> Html {
-	html!{<div>
+	html!{<div class="root-body">
 		<style>
 		 {CORE_STYLES}
 		</style>
 		<style>
 		{MAIN_STYLES}
 		</style>
-		<header class="core-header">
+		<header class="core-header primary-dark">
 			<h1>{"Welcome to the Diary Entry App"}</h1>
 		</header>
 		<BrowserRouter>
@@ -53,7 +53,7 @@ fn Home() -> Html {
 		<Button on_click={onclick}>{"+1"}</Button>
 		<p>{*counter}</p>
 		<p class="description">{"A simple and intuitive app to record your daily thoughts and reflections."}</p>
-		<Link<Route> classes={classes!("navbar-item")} to={Route::Diary}>{"Get Started"}</Link<Route>>
+		<Link<Route> classes={classes!("btn", "accent")} to={Route::Diary}>{"Get Started"}</Link<Route>>
 	</div>}
 }
 

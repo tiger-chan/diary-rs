@@ -34,11 +34,11 @@ pub fn Diary(_: &Props) -> Html {
 			{
 				data.into_iter().map(|entry| {
 					html![
-						<li class="entry-list-item" key={entry.date.as_str()}>
+						<li class="entry-list-item secondary" key={entry.date.as_str()}>
 							<h2 class="entity-title">{entry.title.as_str()}</h2>
 							<p class="entry-date">{entry.date.as_str()}</p>
 							<p class="entry-content">{entry.preview.as_str()}</p>
-							<a class="view-entry-button" href="entry.html">{"View Entry"}</a>
+							<a class={classes!("view-entry-button", "btn", "accent")} href="entry.html">{"View Entry"}</a>
 						</li>
 					]
 				}).collect::<Html>()
